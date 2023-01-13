@@ -5,17 +5,17 @@ import _debounce from 'lodash/debounce';
 import { batchedSubscribe } from 'redux-batched-subscribe'
 
 const preloadedState = {
-    todos: [
-        {
-            text: 'Eat food',
-            completed: true,
-        },
-        {
-            text: 'Exercise',
-            completed: false,
-        },
-    ],
-    visibilityFilter: 'SHOW_COMPLETED',
+    // todos: [
+    //     {
+    //         text: 'Eat food',
+    //         completed: true,
+    //     },
+    //     {
+    //         text: 'Exercise',
+    //         completed: false,
+    //     },
+    // ],
+    // visibilityFilter: 'SHOW_COMPLETED',
 }
 
 const debounceNotify = _debounce(notify => notify());
