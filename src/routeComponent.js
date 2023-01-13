@@ -1,10 +1,17 @@
 import React from 'react'
 import App from "./App";
 import ErrorPage from "./components/Errors/ErrorPages";
+import { Signin } from './views/auth/signin';
 
 
 const routeComponent =
     [
+         {
+            path: "/",
+            element: <Signin />,
+            errorElement: <ErrorPage />,
+           
+        },
         {
             path: "/",
             element: <App />,
