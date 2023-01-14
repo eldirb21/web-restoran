@@ -1,11 +1,10 @@
-import axios from "axios"
 import {
   LOGIN_LOAD, LOGIN_SUCCESS, LOGIN_FAILED, REGIST_LOAD,
   REGIST_SUCCESS, REGIST_FAILED, SIGNOUT_LOAD, SIGNOUT_SUCCESS,
   SIGNOUT_FAILED, FORGOT_PASS_LOAD, FORGOT_PASS_SUCCESS, FORGOT_PASS_FAILED,
   RESET_PASS_LOAD, RESET_PASS_SUCCESS, RESET_PASS_FAILED
 } from "../../constants/action-type"
-import { Http } from '../../constants/axios'
+import axios from '../../constants/axios'
 
 export const doLogin = (body) =>
   async dispatch => {
@@ -34,7 +33,7 @@ export const doRegister = (body) =>
       type: REGIST_LOAD,
       payload: true
     })
-    const response = await Http.post('login', body)
+    const response = await axios.post('login', body)
     if (response) {
       dispatch({
         type: REGIST_SUCCESS,
@@ -55,7 +54,7 @@ export const doSignOut = (body) =>
       type: SIGNOUT_LOAD,
       payload: true
     })
-    const response = await Http.post('login', body)
+    const response = await axios.post('login', body)
     if (response) {
       dispatch({
         type: SIGNOUT_SUCCESS,
@@ -76,7 +75,7 @@ export const doForgotPass = (body) =>
       type: FORGOT_PASS_LOAD,
       payload: true
     })
-    const response = await Http.post('login', body)
+    const response = await axios.post('login', body)
     if (response) {
       dispatch({
         type: FORGOT_PASS_SUCCESS,
@@ -97,7 +96,7 @@ export const doResetPass = (body) =>
       type: RESET_PASS_LOAD,
       payload: true
     })
-    const response = await Http.post('login', body)
+    const response = await axios.post('login', body)
     if (response) {
       dispatch({
         type: RESET_PASS_SUCCESS,
