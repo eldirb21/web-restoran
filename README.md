@@ -18,7 +18,7 @@ You may also see any lint errors in the console.
 
 ![Alt text](https://raw.github.com/eldirb21/web-restoran/dev/src/assets/menu.png "Optional title")
 ![Alt text](https://raw.github.com/eldirb21/web-restoran/dev/src/assets/findus.png?raw=true&sanitize=true "Optional title")
-
+![Watch the video](https://raw.github.com/eldirb21/web-restoran/dev/src/assets/meal.mp4)]
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
