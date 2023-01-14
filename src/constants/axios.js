@@ -1,6 +1,6 @@
-const axios = require("axios");
-
-axios.defaults.baseURL = process.env.API_URL;
+// const axios = require("axios");
+import axios from 'axios'
+export const Http = axios.defaults.baseURL = process.env.API_URL;
 // Add a request interceptor
 const Client = axios.create({
     baseURL: process.env.API_URL

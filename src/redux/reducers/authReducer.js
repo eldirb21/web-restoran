@@ -12,8 +12,8 @@ const initialState = {
   data: []
 }
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default (state = initialState, { type, payload }) => {
+export default (state = initialState, { type, payload, response, errors }) => {
+  // console.log('payload = ', type, payload, response, errors);
   switch (type) {
 
     case LOGIN_LOAD:

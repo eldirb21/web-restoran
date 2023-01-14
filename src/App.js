@@ -5,10 +5,12 @@ import { Navbar } from './components';
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import Signin from './views/auth/signin';
 
 const App = () => (
   <Provider store={store}>
     <div>
+      <Signin/>
       <Navbar />
       <Header />
       <AboutUs />

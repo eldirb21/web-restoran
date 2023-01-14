@@ -6,14 +6,14 @@ import { Signin } from './views/auth/signin';
 
 const routeComponent =
     [
-         {
-            path: "/",
-            element: <Signin />,
-            errorElement: <ErrorPage />,
+        //  {
+        //     path: "/",
+        //     element: <Signin />,
+        //     errorElement: <ErrorPage />,
            
-        },
+        // },
         {
-            path: "/app",
+            path: "/",
             element: <App />,
             errorElement: <ErrorPage />,
             // loader: rootLoader,
