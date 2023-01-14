@@ -13,7 +13,7 @@ const routeComponent =
            
         },
         {
-            path: "/",
+            path: "/app",
             element: <App />,
             errorElement: <ErrorPage />,
             // loader: rootLoader,

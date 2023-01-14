@@ -1,0 +1,42 @@
+.container_auth {
+    background-color: var(--color-black);
+    /* background-color: blue; */
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+}
+
+.card-form {
+    background-color: green;
+    padding: 40px;
+    align-self: center;
+    /* width: ; */
+    display: inline;
+    border-radius: 20px;
+    margin: 20px;
+    box-shadow: '10px 20px 90px 90px white';
+}
+
+.text-hallo {
+    color: #FFF;
+    /* font-size: 2vw; */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 100%;
+    border-radius: 8px;
+    padding: 6px;
+    margin-bottom: 20px;
+}
+
+.btn-submit {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 6px;
+}

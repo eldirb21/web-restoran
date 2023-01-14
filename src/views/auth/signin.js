@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-
+import { useNavigate } from 'react-router-dom';
+import './auth.css';
 export const Signin = (props) => {
+  const navigate = useNavigate();
   const [state, setstate] = useState({
     username: '',
     password: '',
@@ -9,8 +11,7 @@ export const Signin = (props) => {
   })
   const submitHandler = e => {
     e.preventDefault();
-
-    console.log(state);
+    navigate("/app");
 
   }
   const changeHandler = e => {
@@ -19,17 +20,20 @@ export const Signin = (props) => {
 
   }
   return (
-    <div>
+    <div className='container_auth'>
+      <div className='card-form'>
+        <p className='text-hallo'>Signin</p>
       <form onSubmit={submitHandler}>
 
-        <input type="text" name="username" value={state.username}
+        <input className='input' type="text" name="username" placeholder='Email' value={state.username}
           onChange={changeHandler} /><br />
 
-        <input type="password" name="password" value={state.password}
+        <input className='input' type="password" name="password" placeholder='Password' value={state.password}
           onChange={changeHandler} /><br />
 
-        <input type="submit" name="submit" />
+        <input className='btn-submit' type="submit" name="submit" />
       </form>
+      </div>
     </div>
   )
 }
