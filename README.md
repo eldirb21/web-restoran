@@ -17,6 +17,7 @@ You may also see any lint errors in the console.
 ### `npm test`
 
 ![Alt text](https://raw.github.com/eldirb21/web-restoran/dev/src/assets/menu.png "Optional title")
+![Alt text](https://raw.github.com/eldirb21/web-restoran/dev/src/assets/findus.png?raw=true&sanitize=true "Optional title")
 
 
 Launches the test runner in the interactive watch mode.\
