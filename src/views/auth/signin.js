@@ -13,7 +13,7 @@ export const Signin = (props) => {
   })
   const submitHandler = e => {
     e.preventDefault();
-    // navigate("/app");
+    navigate("/app");
     props.doLogin('login', state)
 
   }

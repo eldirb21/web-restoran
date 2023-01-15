@@ -1,10 +1,11 @@
-// const axios = require("axios");
 import axios from 'axios'
-axios.defaults.baseURL = process.env.API_URL;
+var url = 'http://localhost:3030/auth/api/v1/'
+axios.defaults.baseURL = url;//process.env.API_URL; 
+
 export default axios;
 // Add a request interceptor
 const Client = axios.create({
-    baseURL: process.env.API_URL
+    baseURL: url// process.env.API_URL
 });
 Client.defaults.timeout = 2500;
 
