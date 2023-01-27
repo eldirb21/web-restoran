@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 
 export const Dashboard = (props) => {
     return (
-        <div>Dashboard</div>
+        <div>
+            {/* <Sidebar/> */}
+        </div>
     )
 }
 

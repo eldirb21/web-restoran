@@ -4,7 +4,7 @@ import style from "./boarding.module.css";
 
 export const Boarding = (props) => {
   return (
-    <div className="">
+    <div className="container">
       <div className={style.headerContainer}>
         <div className={style.header}>
           <h1 className={`title ${style.title}`}>BARATIE</h1>
@@ -13,7 +13,8 @@ export const Boarding = (props) => {
             <li>MENU</li>
             <li>GALLARY</li>
             <li>VISIT</li>
-          </ul>``
+          </ul>
+          <button>Login</button>
         </div>
       </div>
       <div style={{ zIndex: 999 }}>
