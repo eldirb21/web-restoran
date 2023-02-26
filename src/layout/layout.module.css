@@ -4,11 +4,9 @@ main {
 .sidebar {
   position: fixed;
   top: var(--header-height);
-  left: -30%;
   height: 100vh;
   width: var(--nav-width);
   background-color: var(--color-golden);
-  padding-top: 1rem;
   transition: 0.5s;
 }
 .show {
@@ -80,7 +78,7 @@ main {
   transition: 0.5s;
 }
 .showscreens {
-  left: 23.2%;
+  left: calc(var(--header-height) + 156px);
   transition: 0.5s;
 }
 @media screen and (min-width: 768px) {
@@ -96,5 +94,11 @@ main {
 
   .show {
     width: calc(var(--header-height) + 156px);
+  }
+  .screens{
+    
+  }
+  .showscreens {
+    left: 0px;
   }
 }

@@ -1,7 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import Tables from "../../../components/tables";
-import styles from "./employees.module.css";
 const theadData = ["ID", "Name", "Email", "Date", "Ation"];
 
 const tbodyData = [
@@ -20,7 +18,7 @@ const tbodyData = [
 ];
 export const Employees = (props) => {
   return (
-    <div>
+    <div className="container">
       <table>
         <thead>
           <tr>
