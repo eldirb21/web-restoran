@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
 
 ## Available Scripts
 
@@ -15,6 +15,11 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ### `npm test`
+
+![Alt text](https://raw.github.com/eldirb21/web-restoran/dev/src/assets/menu.png "Optional title")
+![Alt text](https://raw.github.com/eldirb21/web-restoran/dev/src/assets/findus.png?raw=true&sanitize=true "Optional title")
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://www.youtube.com/channel/UCJdgQIaJ1VLTCB3AayoNpIQ)
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.

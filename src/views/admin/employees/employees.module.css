@@ -1,0 +1,101 @@
+/* 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+  
+  td {
+    text-align: right;
+    padding-left: 50%;
+  }
+
+  td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+
+  td:last-child {
+    text-align: center;
+    padding-left: 0;
+  }
+} */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 600px) {
+  /* Styles for screens with a maximum width of 600px */
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  thead, tbody, tr, th, td {
+    display: block;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-right: 10px;
+    font-weight: bold;
+    text-align: right;
+  }
+
+  td:last-child {
+    text-align: center;
+    padding-left: 0;
+  }
+}
