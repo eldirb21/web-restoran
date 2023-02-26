@@ -8,13 +8,8 @@ const AdminSidebar = (props) => {
   return (
     <main className={show ? style.spacetoggle : null}>
       <Headers onClick={() => setShow(!show)} visible={show} notife={10} />
-      {/* <header className={`${style.header} ${show ? style.spacetoggle : null}`}>
-        <div className={style.headertoggle} onClick={() => setShow(!show)}>
-          <i className={`fas fa-bars ${show ? "fa-solid fa-xmark" : null}`}></i>
-        </div>
-      </header> */}
-
-      {/* <aside className={`${style.sidebar} ${show ? style.show : null}`}>
+     
+      <aside className={`${style.sidebar} ${show ? style.show : null}`}>
         <nav className={style.nav}>
           <div>
             <Link to="/admin-dashboard" className={style.navlogo}>
@@ -49,7 +44,7 @@ const AdminSidebar = (props) => {
             <span className={style.navlinkname}>Logout</span>
           </Link>
         </nav>
-      </aside> */}
+      </aside>
       {props.children}
     </main>
   );
