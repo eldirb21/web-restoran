@@ -8,7 +8,7 @@ const AdminSidebar = (props) => {
   return (
     <main className={show ? style.spacetoggle : null}>
       <Headers onClick={() => setShow(!show)} visible={show} notife={10} />
-     
+
       <aside className={`${style.sidebar} ${show ? style.show : null}`}>
         <nav className={style.nav}>
           <div>
@@ -45,7 +45,9 @@ const AdminSidebar = (props) => {
           </Link>
         </nav>
       </aside>
-      {props.children}
+      <div className={`${style.screens} ${show ? style.showscreens : null}`}>
+        {props.children}
+      </div>
     </main>
   );
 };
