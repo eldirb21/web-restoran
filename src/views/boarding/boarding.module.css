@@ -1,9 +1,10 @@
 .headerContainer {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       rgba(0, 0, 255, 0.5),
       rgba(255, 255, 0, 0.5)
     ),
-    url("../../assets/bg-container.png");
+    url("../../assets/bg-container.png"); */
+  background-image: url("../../assets/bg-container.png");
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;

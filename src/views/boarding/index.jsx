@@ -1,8 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import style from "./boarding.module.css";
 
 export const Boarding = (props) => {
+  const navigate = useNavigate();
+  const onLogin=()=>{
+    navigate("/sign-in");
+  }
   return (
     <div className="container">
       <div className={style.headerContainer}>
@@ -14,7 +19,7 @@ export const Boarding = (props) => {
             <li>GALLARY</li>
             <li>VISIT</li>
           </ul>
-          <button>Login</button>
+          <button onClick={onLogin}>Login</button>
         </div>
       </div>
       <div style={{ zIndex: 999 }}>

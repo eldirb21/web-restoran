@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import AdminSidebar from '../../../layout/admin-sidebar'
 
 export const Dashboard = (props) => {
     return (
         <div>
-            {/* <Sidebar/> */}
+            {/* <AdminSidebar/> */}
         </div>
     )
 }

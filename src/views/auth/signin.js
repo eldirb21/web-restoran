@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { doLogin } from "../../redux/actions/authActions";
 import "react-responsive-modal/styles.css";
+import styles from "./auth.css";
 
 export const Signin = (props) => {
   const navigate = useNavigate();

@@ -5,26 +5,7 @@ main {
   font-size: 1rem;
   font-family: "Nunito Sans", sans-serif;
   transition: 0.5s;
-}
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: var(--header-height);
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--white-color);
-  padding: 0 1rem;
-  transition: 0.5s;
-}
-
-.headertoggle {
-  font-size: 1.25rem;
-  cursor: pointer;
-  color: var(--first-color);
+  background-color: red;
 }
 
 .sidebar {
@@ -33,7 +14,7 @@ main {
   left: -30%;
   height: 100vh;
   width: var(--nav-width);
-  background-color: var(--first-color);
+  background-color: var(--color-black);
   padding-top: 1rem;
   transition: 0.5s;
 }
@@ -101,9 +82,7 @@ main {
   left: 0;
 }
 
-.spacetoggle {
-  padding-left: calc(var(--nav-width) + 1rem);
-}
+
 
 @media screen and (min-width: 768px) {
   main {
@@ -128,4 +107,9 @@ main {
   .spacetoggle {
     padding-left: calc(var(--nav-width) + 188px);
   }
+  /* .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  } */
 }
