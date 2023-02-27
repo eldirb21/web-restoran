@@ -1,9 +1,11 @@
 import authReducer from "./authReducer";
+import employeeReducer from "./employeeReducer";
 import productReducer from "./productReducer";
 
 const rootReducer = {
-    products: productReducer,
-    auth: authReducer,
-}
+  products: productReducer,
+  employee: employeeReducer,
+  auth: authReducer,
+};
 
-export default rootReducer
+export default rootReducer;

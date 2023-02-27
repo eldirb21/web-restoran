@@ -1,118 +1,118 @@
 import {
-  ADD_PRODUCT_FAILED,
-  ADD_PRODUCT_LOAD,
-  ADD_PRODUCT_SUCCESS,
-  DELETE_PRODUCT_FAILED,
-  DELETE_PRODUCT_LOAD,
-  DELETE_PRODUCT_SUCCESS,
-  EDIT_PRODUCT_FAILED,
-  EDIT_PRODUCT_LOAD,
-  EDIT_PRODUCT_SUCCESS,
-  GET_PRODUCTID_FAILED,
-  GET_PRODUCTID_LOAD,
-  GET_PRODUCTID_SUCCESS,
-  GET_PRODUCT_FAILED,
-  GET_PRODUCT_LOAD,
-  GET_PRODUCT_SUCCESS,
+  ADD_EMPLOYEE_FAILED,
+  ADD_EMPLOYEE_LOAD,
+  ADD_EMPLOYEE_SUCCESS,
+  DELETE_EMPLOYEE_FAILED,
+  DELETE_EMPLOYEE_LOAD,
+  DELETE_EMPLOYEE_SUCCESS,
+  EDIT_EMPLOYEE_FAILED,
+  EDIT_EMPLOYEE_LOAD,
+  EDIT_EMPLOYEE_SUCCESS,
+  GET_EMPLOYEEID_FAILED,
+  GET_EMPLOYEEID_LOAD,
+  GET_EMPLOYEEID_SUCCESS,
+  GET_EMPLOYEE_FAILED,
+  GET_EMPLOYEE_LOAD,
+  GET_EMPLOYEE_SUCCESS,
 } from "../../constants/action-type";
 
 const initialState = {
   loading: false,
-  foods: [],
+  employees: [],
   errors: {},
 };
 
-const productReducer = (state = initialState, action) => {
+const employeeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_PRODUCT_LOAD:
+    case GET_EMPLOYEE_LOAD:
       return {
         ...state,
         loading: action.isLoading,
       };
-    case GET_PRODUCT_SUCCESS:
+    case GET_EMPLOYEE_SUCCESS:
       return {
         ...state,
         loading: action.isLoading,
-        foods: action.data,
+        employees: action.data,
       };
 
-    case GET_PRODUCT_FAILED:
+    case GET_EMPLOYEE_FAILED:
       return {
         ...state,
         loading: action.isLoading,
         errors: action.errors,
       };
 
-    case GET_PRODUCTID_LOAD:
+    case GET_EMPLOYEEID_LOAD:
       return {
         ...state,
         loading: action.isLoading,
       };
-    case GET_PRODUCTID_SUCCESS:
+    case GET_EMPLOYEEID_SUCCESS:
       return {
         ...state,
         loading: action.isLoading,
-        foods: action.data,
+        employees: action.data,
       };
 
-    case GET_PRODUCTID_FAILED:
+    case GET_EMPLOYEEID_FAILED:
       return {
         ...state,
         loading: action.isLoading,
         errors: action.errors,
       };
 
-    case ADD_PRODUCT_LOAD:
+    case ADD_EMPLOYEE_LOAD:
       return {
         ...state,
         loading: action.isLoading,
       };
-    case ADD_PRODUCT_SUCCESS:
+    case ADD_EMPLOYEE_SUCCESS:
       return {
         ...state,
         loading: action.isLoading,
-        foods: action.data,
+        employees: action.data,
       };
 
-    case ADD_PRODUCT_FAILED:
+    case ADD_EMPLOYEE_FAILED:
       return {
         ...state,
         loading: action.isLoading,
         errors: action.errors,
       };
 
-    case EDIT_PRODUCT_LOAD:
+    case EDIT_EMPLOYEE_LOAD:
       return {
         ...state,
         loading: action.isLoading,
       };
-    case EDIT_PRODUCT_SUCCESS:
+    case EDIT_EMPLOYEE_SUCCESS:
       return {
         ...state,
         loading: action.isLoading,
-        foods: action.data,
+        employees: action.data,
       };
 
-    case EDIT_PRODUCT_FAILED:
+    case EDIT_EMPLOYEE_FAILED:
       return {
         ...state,
         loading: action.isLoading,
         errors: action.errors,
       };
 
-    case DELETE_PRODUCT_LOAD:
+    case DELETE_EMPLOYEE_LOAD:
       return {
         ...state,
         loading: action.isLoading,
       };
-    case DELETE_PRODUCT_SUCCESS:
+    case DELETE_EMPLOYEE_SUCCESS:
       return {
         ...state,
         loading: action.isLoading,
-        foods: action.data,
+        employees: action.data,
       };
 
-    case DELETE_PRODUCT_FAILED:
+    case DELETE_EMPLOYEE_FAILED:
       return {
         ...state,
         loading: action.isLoading,
@@ -123,4 +123,5 @@ const productReducer = (state = initialState, action) => {
       return state;
   }
 };
-export default productReducer;
+
+export default employeeReducer;
