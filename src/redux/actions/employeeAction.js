@@ -1,125 +1,125 @@
 import {
-  ADD_PRODUCT_FAILED,
-  ADD_PRODUCT_LOAD,
-  ADD_PRODUCT_SUCCESS,
-  DELETE_PRODUCT_FAILED,
-  DELETE_PRODUCT_LOAD,
-  DELETE_PRODUCT_SUCCESS,
-  EDIT_PRODUCT_FAILED,
-  EDIT_PRODUCT_LOAD,
-  EDIT_PRODUCT_SUCCESS,
-  GET_PRODUCTID_FAILED,
-  GET_PRODUCTID_LOAD,
-  GET_PRODUCTID_SUCCESS,
-  GET_PRODUCT_FAILED,
-  GET_PRODUCT_LOAD,
-  GET_PRODUCT_SUCCESS,
+  ADD_EMPLOYEE_FAILED,
+  ADD_EMPLOYEE_LOAD,
+  ADD_EMPLOYEE_SUCCESS,
+  DELETE_EMPLOYEE_FAILED,
+  DELETE_EMPLOYEE_LOAD,
+  DELETE_EMPLOYEE_SUCCESS,
+  EDIT_EMPLOYEE_FAILED,
+  EDIT_EMPLOYEE_LOAD,
+  EDIT_EMPLOYEE_SUCCESS,
+  GET_EMPLOYEEID_FAILED,
+  GET_EMPLOYEEID_LOAD,
+  GET_EMPLOYEEID_SUCCESS,
+  GET_EMPLOYEE_FAILED,
+  GET_EMPLOYEE_LOAD,
+  GET_EMPLOYEE_SUCCESS,
 } from "../../constants/action-type";
 import { GET } from "../../constants/axios";
 
-const getProductList = (params) => (dispatch) => {
+const getEmployeeList = (params) => (dispatch) => {
   dispatch({
-    type: GET_PRODUCT_LOAD,
+    type: GET_EMPLOYEE_LOAD,
     isLoading: true,
   });
   return GET("path", params)
     .then((res) => {
       dispatch({
-        type: GET_PRODUCT_SUCCESS,
+        type: GET_EMPLOYEE_SUCCESS,
         isLoading: false,
         data: res.data,
       });
     })
     .catch((err) => {
       dispatch({
-        type: GET_PRODUCT_FAILED,
+        type: GET_EMPLOYEE_FAILED,
         isLoading: false,
         errors: err,
       });
     });
 };
 
-const getProductSingle = (params) => (dispatch) => {
+const getEmployeeSingle = (params) => (dispatch) => {
   dispatch({
-    type: GET_PRODUCTID_LOAD,
+    type: GET_EMPLOYEEID_LOAD,
     isLoading: true,
   });
   return GET("path", params)
     .then((res) => {
       dispatch({
-        type: GET_PRODUCTID_SUCCESS,
+        type: GET_EMPLOYEEID_SUCCESS,
         isLoading: false,
         data: res.data,
       });
     })
     .catch((err) => {
       dispatch({
-        type: GET_PRODUCTID_FAILED,
+        type: GET_EMPLOYEEID_FAILED,
         isLoading: false,
         errors: err,
       });
     });
 };
 
-const addProduct = (params) => (dispatch) => {
+const addEmployee = (params) => (dispatch) => {
   dispatch({
-    type: ADD_PRODUCT_LOAD,
+    type: ADD_EMPLOYEE_LOAD,
     isLoading: true,
   });
   return GET("path", params)
     .then((res) => {
       dispatch({
-        type: ADD_PRODUCT_SUCCESS,
+        type: ADD_EMPLOYEE_SUCCESS,
         isLoading: false,
         data: res.data,
       });
     })
     .catch((err) => {
       dispatch({
-        type: ADD_PRODUCT_FAILED,
+        type: ADD_EMPLOYEE_FAILED,
         isLoading: false,
         errors: err,
       });
     });
 };
 
-const updateProduct = (params) => (dispatch) => {
+const updateEmployee = (params) => (dispatch) => {
   dispatch({
-    type: EDIT_PRODUCT_LOAD,
+    type: EDIT_EMPLOYEE_LOAD,
     isLoading: true,
   });
   return GET("path", params)
     .then((res) => {
       dispatch({
-        type: EDIT_PRODUCT_SUCCESS,
+        type: EDIT_EMPLOYEE_SUCCESS,
         isLoading: false,
         data: res.data,
       });
     })
     .catch((err) => {
       dispatch({
-        type: EDIT_PRODUCT_FAILED,
+        type: EDIT_EMPLOYEE_FAILED,
         isLoading: false,
         errors: err,
       });
     });
 };
-const deleteProduct = (params) => (dispatch) => {
+const deleteEmployee = (params) => (dispatch) => {
   dispatch({
-    type: DELETE_PRODUCT_LOAD,
+    type: DELETE_EMPLOYEE_LOAD,
     isLoading: true,
   });
   return GET("path", params)
     .then((res) => {
       dispatch({
-        type: DELETE_PRODUCT_SUCCESS,
+        type: DELETE_EMPLOYEE_SUCCESS,
         isLoading: false,
         data: res.data,
       });
     })
     .catch((err) => {
       dispatch({
-        type: DELETE_PRODUCT_FAILED,
+        type: DELETE_EMPLOYEE_FAILED,
         isLoading: false,
         errors: err,
       });
@@ -127,9 +127,9 @@ const deleteProduct = (params) => (dispatch) => {
 };
 
 export {
-  getProductList,
-  getProductSingle,
-  addProduct,
-  updateProduct,
-  deleteProduct,
+  getEmployeeList,
+  getEmployeeSingle,
+  addEmployee,
+  updateEmployee,
+  deleteEmployee,
 };

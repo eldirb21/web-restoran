@@ -96,11 +96,5 @@ main {
 
   .show {
     width: calc(var(--header-height) + 156px);
-  }
-  .screens{
-    
-  }
-  .showscreens {
-    left: 0px;
-  }
+  } 
 }

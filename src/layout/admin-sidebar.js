@@ -12,10 +12,10 @@ const AdminSidebar = (props) => {
       <aside className={`${style.sidebar} ${show ? style.show : null}`}>
         <nav className={style.nav}>
           <div>
-            <Link to="/admin-dashboard" className={style.navlogo}>
+            {/* <Link to="/admin-dashboard" className={style.navlogo}>
               <i className={`fas fa-home-alt ${style.navlogoicon}`}></i>
               <span className={style.navlogoname}>Homepage</span>
-            </Link>
+            </Link> */}
 
             <div className={style.navlist}>
               <Link to="/admin-dashboard" className={`${style.navlink} active`}>
@@ -30,12 +30,12 @@ const AdminSidebar = (props) => {
                 <i className={`fa-solid fa-bowl-rice ${style.navlinkicon}`}></i>
                 <span className={style.navlinkname}> Foods</span>
               </Link>
-              <Link to="/admin-orders" className={style.navlink}>
+              {/* <Link to="/admin-orders" className={style.navlink}>
                 <i
                   className={`fa-solid fa-cart-shopping ${style.navlinkicon}`}
                 ></i>
                 <span className={style.navlinkname}>Orders</span>
-              </Link>
+              </Link> */}
             </div>
           </div>
 
