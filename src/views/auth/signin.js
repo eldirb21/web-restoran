@@ -15,8 +15,12 @@ export const Signin = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    navigate("/admin-dashboard");
-    props.doLogin("login", state);
+    localStorage.setItem("UserTyp", "Admin");
+    setTimeout(() => {
+      navigate("/admin-dashboard");
+      navigate(0)
+      props.doLogin("login", state);
+    }, 2000);
   };
 
   return (

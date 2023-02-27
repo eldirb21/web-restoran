@@ -1,11 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { avatar } from "../../assets/images";
 import styles from "./headers.module.css";
 
 export const Headers = ({ onClick, visible, notife }) => {
+  const navigate = useNavigate();
+
   function myFunction() {
     alert("You hovered over the button!");
+    localStorage.removeItem("UserTyp");
+    navigate("/");
+    navigate(0);
   }
   return (
     <div className={`${styles.header} ${visible ? styles.spacetoggle : null}`}>
@@ -24,9 +30,7 @@ export const Headers = ({ onClick, visible, notife }) => {
             className={styles.avatar}
           />
         </div>
-        
       </div>
-
     </div>
   );
 };
