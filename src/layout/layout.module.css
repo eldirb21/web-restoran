@@ -75,6 +75,8 @@ main {
   position: fixed;
   top: var(--header-height);
   left: var(--nav-width);
+  right: 0;
+  display: flex;
   transition: 0.5s;
 }
 .showscreens {

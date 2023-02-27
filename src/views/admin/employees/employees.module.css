@@ -1,21 +1,72 @@
-
+.employee {
+  overflow-y: auto;
+  height: 100%;
+}
+.content {
+  background-color: rgb(229, 229, 229);
+  height: 95%;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.paginate {
+  align-self: flex-end;
+  margin: 10px 0;
+  color: #000;
+}
 table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   padding: 8px;
-  text-align: left;
+  text-align: center;
 }
 
 th {
   background-color: #ddd;
   font-weight: bold;
 }
+tbody tr td button {
+  padding: 8px;
+  width: 40%;
+  margin: 5px;
+  background-color: transparent;
+  border-radius: 20px;
+  color: #000;
+}
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+.addEmployeebtn {
+  align-items: flex-end;
+  justify-content: flex-end;
+  display: flex;
+}
+.addEmployeebtn button[type="reset"] {
+  background-color: transparent;
+  border-width: 2px;
+  border-color: aqua;
+  padding: 10px;
+  width: 150px;
+  border-radius: 10px;
+  margin-left: 10px;
+  color: aqua;
+}
+.addEmployeebtn button[type="submit"] {
+  background-color: aqua;
+  border-width: 0;
+  padding: 10px;
+  width: 150px;
+  border-radius: 10px;
+  margin-left: 10px;
+
 }
 
 @media screen and (max-width: 600px) {
@@ -25,7 +76,11 @@ tr:nth-child(even) {
     overflow-x: auto;
   }
 
-  thead, tbody, tr, th, td {
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
     display: block;
   }
 

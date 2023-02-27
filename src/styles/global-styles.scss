@@ -134,11 +134,11 @@ ul {
   align-items: center;
   justify-content: space-around;
 }
-
+textarea,
 input {
   border: none;
   background-color: rgb(229, 226, 226);
-  width: 80%;
+  width: 100%;
   border-radius: 0.25em;
   text-align: center;
   padding: 1.2em;
@@ -147,7 +147,7 @@ input {
 .uppercase {
   text-transform: uppercase;
 }
-
+textarea:focus,
 input:focus {
   outline-color: rgb(32, 177, 255);
 }
