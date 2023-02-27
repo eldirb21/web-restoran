@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { doLogin } from "../../redux/actions/authActions";
 import "react-responsive-modal/styles.css";
 import styles from "./auth.css";
+import { Spinner } from "../../components/spinner";
 
 export const Signin = (props) => {
   const navigate = useNavigate();
@@ -16,9 +17,11 @@ export const Signin = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     localStorage.setItem("USERTYPE", "Admin");
+    setstate({ ...state, isLoading: true });
     setTimeout(() => {
-      navigate("/admin-dashboard");
-      navigate(0)
+      navigate("/");
+      navigate(0);
+      setstate({ ...state, isLoading: false });
       props.doLogin("login", state);
     }, 2000);
   };
@@ -48,6 +51,7 @@ export const Signin = (props) => {
           Signup
         </button>
       </div>
+      <Spinner visible={state.isLoading} />
     </div>
   );
 };
