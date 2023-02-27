@@ -1,22 +1,16 @@
 main {
-  position: relative;
-  margin: var(--header-height) 0 0 0;
-  padding: 0 1rem;
-  font-size: 1rem;
-  font-family: "Nunito Sans", sans-serif;
-  transition: 0.5s;
-  background-color: red;
 }
 
 .sidebar {
   position: fixed;
-  top: 0;
-  left: -30%;
+  top: var(--header-height);
   height: 100vh;
   width: var(--nav-width);
-  background-color: var(--color-black);
-  padding-top: 1rem;
+  background-color: var(--color-golden);
   transition: 0.5s;
+}
+.show {
+  left: 0;
 }
 
 .nav {
@@ -77,22 +71,22 @@ main {
   background-color: var(--white-color);
   transition: 0.5s;
 }
-
-.show {
-  left: 0;
+.screens {
+  position: fixed;
+  top: var(--header-height);
+  left: var(--nav-width);
+  right: 0;
+  display: flex;
+  transition: 0.5s;
 }
-
-
-
+.showscreens {
+  left: calc(var(--header-height) + 156px);
+  transition: 0.5s;
+}
 @media screen and (min-width: 768px) {
   main {
     margin: calc(var(--header-height) + 1rem) 0 0 0;
     padding: 0 1rem 0 calc(var(--nav-width) + 2rem);
-  }
-
-  .header {
-    height: calc(var(--header-height) + 1rem);
-    padding-left: calc(var(--nav-width) + 2rem);
   }
 
   .sidebar {
@@ -103,13 +97,10 @@ main {
   .show {
     width: calc(var(--header-height) + 156px);
   }
-
-  .spacetoggle {
-    padding-left: calc(var(--nav-width) + 188px);
+  .screens{
+    
   }
-  /* .avatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-  } */
+  .showscreens {
+    left: 0px;
+  }
 }

@@ -15,9 +15,10 @@
   font-size: 1.25rem;
   cursor: pointer;
   color: var(--first-color);
+  padding-left: 10px;
 }
 .spacetoggle {
-  padding-left: calc(var(--nav-width) + 1rem);
+  /* padding-left: calc(var(--nav-width) + 15rem); */
 }
 .contentRight {
   align-items: center;

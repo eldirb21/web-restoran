@@ -1,0 +1,18 @@
+.textInput{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    width: 100%;
+}
+.textInput label{
+}
+.textInput input{
+    padding: 10px;
+    text-align: left;
+    color: #000;
+}
+.textInput textarea{
+    padding: 10px;
+    text-align: left;
+    color: #000;
+}

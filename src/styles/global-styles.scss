@@ -11,7 +11,7 @@
   --color-grey: #aaaaaa;
   --color-white: #ffffff;
 
-  --header-height: 2.5rem;
+  --header-height: 3.5rem;
   --nav-width: 68px;
 
   --first-color: #5e5a5a;
@@ -70,11 +70,7 @@ ul {
   display: flex;
   flex-direction: column;
 }
-.container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -113,10 +109,7 @@ ul {
 .container {
   height: 100vh;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.75em;
+  padding: 15px;
 }
 .container-bg {
   height: 100vh;
@@ -141,11 +134,11 @@ ul {
   align-items: center;
   justify-content: space-around;
 }
-
+textarea,
 input {
   border: none;
   background-color: rgb(229, 226, 226);
-  width: 80%;
+  width: 100%;
   border-radius: 0.25em;
   text-align: center;
   padding: 1.2em;
@@ -154,7 +147,7 @@ input {
 .uppercase {
   text-transform: uppercase;
 }
-
+textarea:focus,
 input:focus {
   outline-color: rgb(32, 177, 255);
 }
