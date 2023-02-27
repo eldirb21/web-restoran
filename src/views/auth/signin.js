@@ -15,7 +15,7 @@ export const Signin = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    localStorage.setItem("UserTyp", "Admin");
+    localStorage.setItem("USERTYPE", "Admin");
     setTimeout(() => {
       navigate("/admin-dashboard");
       navigate(0)

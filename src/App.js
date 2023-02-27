@@ -18,7 +18,7 @@ const App = () => {
   const [userType, setuserType] = useState("");
 
   useEffect(() => {
-    const items = localStorage.getItem("UserTyp");
+    const items = localStorage.getItem("USERTYPE");
     console.log(items);
     if (items) {
       setuserType(items);
