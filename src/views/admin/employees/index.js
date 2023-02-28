@@ -8,6 +8,7 @@ import EditEmployee from "./edit-employee";
 import AddEmployee from "./add-employee";
 import ModalAlert from "../../../components/ModalAlart";
 import { getEmployeeList } from "../../../redux/actions/employeeAction";
+import { formatDate } from "../../../constants/helpers";
 
 const theadData = ["ID", "Username", "Role", "Join date", "Ation"];
 
@@ -86,8 +87,6 @@ export const Employees = (props) => {
     }
   }, [props.employee]);
 
-  console.log("Items = ", Items);
-
   return (
     <div className={`container ${styles.employese}`}>
       <div className={styles.content}>
@@ -100,23 +99,23 @@ export const Employees = (props) => {
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="temployee">
             {Items.map((item, index) => (
               <tr key={index}>
                 <td>{item.id}</td>
                 <td>{item.username}</td>
                 <td>{item.role}</td>
-                <td>{item.createdAt}</td>
+                <td>{formatDate(item.createdAt, true)}</td>
 
                 <td>
-                  <button onClick={showModalEdit}>Edit</button>
+                  {/* <button onClick={showModalEdit}>Edit</button> */}
                   <button onClick={showModalAlert}>Delete</button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div className={styles.paginate}>
+        {/* <div className={styles.paginate}>
           <ReactPaginate
             breakLabel="..."
             nextLabel="next >"
@@ -126,7 +125,7 @@ export const Employees = (props) => {
             previousLabel="< previous"
             renderOnZeroPageCount={null}
           />
-        </div>
+        </div> */}
       </div>
 
       <AddEmployee visible={modalAdd} onModal={showModalAdd} />

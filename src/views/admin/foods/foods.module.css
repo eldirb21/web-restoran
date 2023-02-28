@@ -32,12 +32,12 @@ th {
   font-weight: bold;
 }
 tbody tr td button {
-  padding: 8px;
+  /* padding: 8px;
   width: 40%;
   margin: 5px;
   background-color: transparent;
   border-radius: 20px;
-  color: #000;
+  color: #000; */
 }
 
 tr:nth-child(even) {
