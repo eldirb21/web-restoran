@@ -17,24 +17,24 @@ import {
 } from "../../constants/action-type";
 import { GET } from "../../constants/axios";
 
-const getEmployeeList = (params) => (dispatch) => {
+const getEmployeeList = () => (dispatch) => {
   dispatch({
     type: GET_EMPLOYEE_LOAD,
     isLoading: true,
   });
-  return GET("path", params)
+  return GET("data-user")
     .then((res) => {
       dispatch({
         type: GET_EMPLOYEE_SUCCESS,
         isLoading: false,
-        data: res.data,
+        data: res.data.data,
       });
     })
     .catch((err) => {
       dispatch({
         type: GET_EMPLOYEE_FAILED,
         isLoading: false,
-        errors: err,
+        errors: err.message,
       });
     });
 };

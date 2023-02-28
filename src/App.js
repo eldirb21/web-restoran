@@ -14,13 +14,13 @@ import Signup from "./views/auth/signup";
 import Boarding from "./views/boarding";
 
 const App = () => {
-  /** User type :[Admin, Employee, Customer] */
   const [userType, setuserType] = useState("");
 
   useEffect(() => {
-    const items = localStorage.getItem("USERTYPE");
-    console.log(items);
-    if (items) {
+    const items = localStorage.getItem("ROLES");
+    const token = localStorage.getItem("TOKEN");
+
+    if (items !== null && token !== null) {
       setuserType(items);
     }
   }, [userType]);
@@ -61,12 +61,12 @@ const App = () => {
       </Routes>
     );
   };
-  console.log("User type = ", userType);
+
   return (
     <Provider store={store}>
-      {userType !== "Admin" && userType !== "Employee" && rootCustomer()}
-      {userType === "Employee" && rootUser()}
-      {userType === "Admin" && rootAdmin()}
+      {userType !== "administrator" && userType !== "kasir" && rootCustomer()}
+      {userType === "kasir" && rootUser()}
+      {userType === "administrator" && rootAdmin()}
     </Provider>
   );
 };

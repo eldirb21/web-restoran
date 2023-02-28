@@ -1,29 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { doLogin } from "../../redux/actions/authActions";
 import "react-responsive-modal/styles.css";
 import styles from "./auth.css";
-import { Spinner } from "../../components/spinner";
+import { Spinner } from "../../components/Spinner";
 
 export const Signin = (props) => {
   const navigate = useNavigate();
   const [state, setstate] = useState({
-    username: "",
-    password: "",
-    isLoading: false,
+    username: "eldir",
+    password: "eldir",
   });
+  useEffect(() => {
+    if (Object.keys(props.auth.data).length !== 0) {
+      navigate("/");
+      navigate(0);
+    }
+    if (Object.keys(props.auth.errors).length !== 0) {
+      alert("error login");
+    }
+  }, [props.auth]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    localStorage.setItem("USERTYPE", "Admin");
-    setstate({ ...state, isLoading: true });
-    setTimeout(() => {
-      navigate("/");
-      navigate(0);
-      setstate({ ...state, isLoading: false });
-      props.doLogin("login", state);
-    }, 2000);
+    props.doLogin(state);
   };
 
   return (
@@ -51,7 +52,7 @@ export const Signin = (props) => {
           Signup
         </button>
       </div>
-      <Spinner visible={state.isLoading} />
+      <Spinner visible={props.auth.loading} />
     </div>
   );
 };

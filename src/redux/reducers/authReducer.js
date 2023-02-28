@@ -19,102 +19,99 @@ import {
 const initialState = {
   loading: false,
   errors: {},
-  data: [],
+  data: {},
 };
 
-const authReducer = (
-  state = initialState,
-  { type, payload, response, errors }
-) => {
-  switch (type) {
+const authReducer = (state = initialState, action) => {
+  switch (action.type) {
     case LOGIN_LOAD:
       return {
         ...state,
-        loading: payload.payload,
+        loading: action.payload,
       };
     case LOGIN_SUCCESS:
       return {
         ...state,
-        loading: payload.payload,
-        data: payload.response,
+        loading: action.payload,
+        data: action.data,
       };
     case LOGIN_FAILED:
       return {
         ...state,
-        loading: payload.payload,
-        errors: payload.errors,
+        loading: action.payload,
+        errors: action.errors,
       };
 
     case REGIST_LOAD:
       return {
         ...state,
-        loading: payload.payload,
+        loading: action.payload,
       };
     case REGIST_SUCCESS:
       return {
         ...state,
-        loading: payload.payload,
-        data: payload.response,
+        loading: action.payload,
+        data: action.response,
       };
     case REGIST_FAILED:
       return {
         ...state,
-        loading: payload.payload,
-        errors: payload.errors,
+        loading: action.payload,
+        errors: action.errors,
       };
 
     case SIGNOUT_LOAD:
       return {
         ...state,
-        loading: payload.payload,
+        loading: action.payload,
       };
     case SIGNOUT_SUCCESS:
       return {
         ...state,
-        loading: payload.payload,
-        data: payload.response,
+        loading: action.payload,
+        data: action.response,
       };
     case SIGNOUT_FAILED:
       return {
         ...state,
-        loading: payload.payload,
-        errors: payload.errors,
+        loading: action.payload,
+        errors: action.errors,
       };
 
     case FORGOT_PASS_LOAD:
       return {
         ...state,
-        loading: payload.payload,
+        loading: action.payload,
       };
     case FORGOT_PASS_SUCCESS:
       return {
         ...state,
-        loading: payload.payload,
-        data: payload.response,
+        loading: action.payload,
+        data: action.response,
       };
     case FORGOT_PASS_FAILED:
       return {
         ...state,
-        loading: payload.payload,
-        errors: payload.errors,
+        loading: action.payload,
+        errors: action.errors,
       };
 
     case RESET_PASS_LOAD:
       return {
         ...state,
-        loading: payload.payload,
+        loading: action.payload,
       };
     case RESET_PASS_SUCCESS:
       return {
         ...state,
-        loading: payload.payload,
-        data: payload.response,
+        loading: action.payload,
+        data: action.response,
       };
     case RESET_PASS_FAILED:
       return {
         ...state,
-        loading: payload.payload,
-        errors: payload.errors,
+        loading: action.payload,
+        errors: action.errors,
       };
     default:
       return state;

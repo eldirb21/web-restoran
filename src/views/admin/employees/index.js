@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { TableHeaders } from "../../../components/tables/table-headers";
 import styles from "./employees.module.css";
@@ -7,8 +7,9 @@ import { Modal } from "../../../components/modal";
 import EditEmployee from "./edit-employee";
 import AddEmployee from "./add-employee";
 import ModalAlert from "../../../components/ModalAlart";
+import { getEmployeeList } from "../../../redux/actions/employeeAction";
 
-const theadData = ["ID", "Name", "Email", "Date", "Ation"];
+const theadData = ["ID", "Username", "Role", "Join date", "Ation"];
 
 const tbodyData = [
   {
@@ -59,7 +60,7 @@ export const Employees = (props) => {
   const [modalAlert, setmodalAlert] = useState(false);
   var itemsPerPage = 10;
   const pageCount = Math.ceil(tbodyData.length / itemsPerPage);
-
+  const [Items, setItems] = useState([]);
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % tbodyData.length;
     setItemOffset(newOffset);
@@ -76,6 +77,17 @@ export const Employees = (props) => {
     setmodalAlert(!modalAlert);
   };
 
+  useEffect(() => {
+    props.getEmployeeList();
+  }, []);
+  useEffect(() => {
+    if (props.employee.employees) {
+      setItems(props.employee.employees);
+    }
+  }, [props.employee]);
+
+  console.log("Items = ", Items);
+
   return (
     <div className={`container ${styles.employese}`}>
       <div className={styles.content}>
@@ -89,11 +101,13 @@ export const Employees = (props) => {
             </tr>
           </thead>
           <tbody>
-            {tbodyData.map((row, index) => (
+            {Items.map((item, index) => (
               <tr key={index}>
-                {row.items.map((item, index) => (
-                  <td key={index}>{item}</td>
-                ))}
+                <td>{item.id}</td>
+                <td>{item.username}</td>
+                <td>{item.role}</td>
+                <td>{item.createdAt}</td>
+
                 <td>
                   <button onClick={showModalEdit}>Edit</button>
                   <button onClick={showModalAlert}>Delete</button>
@@ -127,8 +141,12 @@ export const Employees = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  employee: state.employee,
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  getEmployeeList,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Employees);

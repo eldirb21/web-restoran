@@ -22,9 +22,9 @@ const debounceNotify = _debounce(notify => notify());
 
 const store = configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
-    devTools: process.env.NODE_ENV !== 'production',
-    preloadedState,
-    enhancers: [batchedSubscribe(debounceNotify)],
+    // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    // devTools: process.env.NODE_ENV !== 'production',
+    // preloadedState,
+    // enhancers: [batchedSubscribe(debounceNotify)],
 })
 export default store

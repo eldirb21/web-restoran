@@ -1,60 +1,62 @@
-import axios from 'axios'
-var url = 'http://localhost:3030/auth/api/v1/'
-axios.defaults.baseURL = url;//process.env.API_URL; 
+import axios from "axios";
+import env from "react-dotenv";
+
+axios.defaults.baseURL = env.BASE_API;
 
 export default axios;
-// Add a request interceptor
+
 const Client = axios.create({
-    baseURL: url// process.env.API_URL
+  baseURL: env.BASE_API,
 });
-Client.defaults.timeout = 2500;
 
-Client.interceptors.request.use(function (config) {
-    // Do something before request is sent
+Client.interceptors.request.use(
+  function (config) {
+    var token = localStorage.getItem("TOKEN");
+    config.headers.Authorization = `Token ${token}`;
     return config;
-}, function (error) {
-    // Do something with request error
+  },
+  function (error) {
     return Promise.reject(error);
-});
+  }
+);
 
-// Add a response interceptor
-Client.interceptors.response.use(function (response) {
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
+Client.interceptors.response.use(
+  function (response) {
+    var token = localStorage.getItem("TOKEN");
+    response.headers.Authorization = `Token ${token}`;
     return response;
-}, function (error) {
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
+  },
+  function (error) {
     return Promise.reject(error);
-});
+  }
+);
 
 const POST = (path, body) => {
-    return Promise((resolve, reject) => {
-        Client.post(path, body)
-            .then(res => resolve(res))
-            .catch(err => reject(err))
-    })
-}
+  return new Promise((resolve, reject) => {
+    Client.post(path, body)
+      .then((res) => resolve(res))
+      .catch((err) => reject(err));
+  });
+};
 const UPDATE = (path, body) => {
-    return Promise((resolve, reject) => {
-        Client.post(path, body)
-            .then(res => resolve(res))
-            .catch(err => reject(err))
-    })
-}
+  return new Promise((resolve, reject) => {
+    Client.post(path, body)
+      .then((res) => resolve(res))
+      .catch((err) => reject(err));
+  });
+};
 const GET = (path, body) => {
-    return Promise((resolve, reject) => {
-        Client.get(path, body)
-            .then(res => resolve(res))
-            .catch(err => reject(err))
-    })
-}
+  return new Promise((resolve, reject) => {
+    Client.get(path, body)
+      .then((res) => resolve(res))
+      .catch((err) => reject(err));
+  });
+};
 const DELETE = (path, body) => {
-    return Promise((resolve, reject) => {
-        Client.delete(path, body)
-            .then(res => resolve(res))
-            .catch(err => reject(err))
-    })
-}
-export { Client, POST, UPDATE, GET, DELETE }
-
+  return new Promise((resolve, reject) => {
+    Client.delete(path, body)
+      .then((res) => resolve(res))
+      .catch((err) => reject(err));
+  });
+};
+export { Client, POST, UPDATE, GET, DELETE };

@@ -9,7 +9,8 @@ export const Headers = ({ onClick, visible, notife }) => {
 
   function myFunction() {
     alert("You hovered over the button!");
-    localStorage.removeItem("USERTYPE");
+    localStorage.removeItem("TOKEN");
+    localStorage.removeItem("ROLES");
     navigate("/");
     navigate(0);
   }
