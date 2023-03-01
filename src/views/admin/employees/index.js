@@ -12,10 +12,12 @@ import {
 } from "../../../redux/actions/employeeAction";
 import { formatDate } from "../../../constants/helpers";
 import { Spinner } from "../../../components/Spinner";
+import { useFetchs } from "../../../constants/useFetchs";
 
 const theadData = ["ID", "Username", "Role", "Join date", "Action"];
 
 export const Employees = (props) => {
+  useFetchs(props.getEmployeeList);
   const [modalAdd, setmodalAdd] = useState(false);
   const [modalAlert, setmodalAlert] = useState(false);
   const [Items, setItems] = useState([]);
@@ -27,28 +29,24 @@ export const Employees = (props) => {
     setmodalAlert(!modalAlert);
   };
 
-  useEffect(() => {
-    props.getEmployeeList();
-  }, []);
+  // useEffect(() => {
+  //   if (props.employee.employees) {
+  //     setItems(props.employee.employees);
+  //   }
+  // }, [props.employee]);
 
   useEffect(() => {
-    if (props.employee.employees) {
-      setItems(props.employee.employees);
-    }
-  }, [props.employee]);
-
-  useEffect(() => {
-    if (props.employee.submitStatus) {
+    if (props.employee.submitStatus !== null) {
       showModalAdd();
     }
   }, [props.employee.submitStatus]);
 
-  useEffect(() => {
-    if (props.employee.deleteStatus) {
-      showModalAlert();
-      props.clearDeleteEmployee();
-    }
-  }, [props.employee.deleteStatus]);
+  // useEffect(() => {
+  //   if (props.employee.deleteStatus) {
+  //     showModalAlert();
+  //     // props.clearDeleteEmployee();
+  //   }
+  // }, [props.employee.deleteStatus]);
 
   console.log("props.employee = ", props.employee);
 

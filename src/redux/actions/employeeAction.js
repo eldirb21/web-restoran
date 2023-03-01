@@ -18,10 +18,10 @@ import {
 import { DELETE, GET, POST } from "../../constants/axios";
 
 const getEmployeeList = () => (dispatch) => {
-  dispatch({
-    type: GET_EMPLOYEE_LOAD,
-    isLoading: true,
-  });
+  // dispatch({
+  //   type: GET_EMPLOYEE_LOAD,
+  //   isLoading: true,
+  // });
   return GET("data-user")
     .then((res) => {
       dispatch({
