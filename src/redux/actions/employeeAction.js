@@ -73,6 +73,7 @@ const addEmployee = (params) => (dispatch) => {
         isLoading: false,
         data: res.data.message,
       });
+      dispatch(getEmployeeList());
     })
     .catch((err) => {
       dispatch({
@@ -95,6 +96,7 @@ const updateEmployee = (params) => (dispatch) => {
         isLoading: false,
         data: res.data,
       });
+      dispatch(getEmployeeList());
     })
     .catch((err) => {
       dispatch({
@@ -116,6 +118,7 @@ const deleteEmployee = (params) => (dispatch) => {
         isLoading: false,
         data: res.data.message,
       });
+      dispatch(getEmployeeList());
     })
     .catch((err) => {
       dispatch({

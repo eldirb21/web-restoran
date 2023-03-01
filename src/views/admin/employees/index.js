@@ -40,19 +40,17 @@ export const Employees = (props) => {
   useEffect(() => {
     if (props.employee.submitStatus) {
       showModalAdd();
-      props.getEmployeeList();
     }
   }, [props.employee.submitStatus]);
 
   useEffect(() => {
     if (props.employee.deleteStatus) {
       showModalAlert();
-      props.getEmployeeList();
       props.clearDeleteEmployee();
     }
   }, [props.employee.deleteStatus]);
 
-  console.log("props.employee.submitStatus = ", props.employee.deleteStatus);
+  console.log("props.employee = ", props.employee);
 
   const handleDelete = () => {
     props.deleteEmployee({ id: selected.id });
