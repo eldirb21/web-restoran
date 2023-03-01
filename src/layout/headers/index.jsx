@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { avatar } from "../../assets/images";
@@ -6,6 +6,8 @@ import styles from "./headers.module.css";
 
 export const Headers = ({ onClick, visible, notife }) => {
   const navigate = useNavigate();
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
+
 
   function myFunction() {
     alert("You hovered over the button!");
