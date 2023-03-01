@@ -13,7 +13,7 @@ import {
 import { formatDate } from "../../../constants/helpers";
 import { Spinner } from "../../../components/Spinner";
 
-const theadData = ["ID", "Username", "Role", "Join date", "Ation"];
+const theadData = ["ID", "Username", "Role", "Join date", "Action"];
 
 export const Employees = (props) => {
   const [modalAdd, setmodalAdd] = useState(false);
