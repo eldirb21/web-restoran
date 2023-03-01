@@ -15,7 +15,7 @@ import {
   GET_EMPLOYEE_LOAD,
   GET_EMPLOYEE_SUCCESS,
 } from "../../constants/action-type";
-import { GET } from "../../constants/axios";
+import { DELETE, GET, POST } from "../../constants/axios";
 
 const getEmployeeList = () => (dispatch) => {
   dispatch({
@@ -66,19 +66,19 @@ const addEmployee = (params) => (dispatch) => {
     type: ADD_EMPLOYEE_LOAD,
     isLoading: true,
   });
-  return GET("path", params)
+  return POST("add-user", params)
     .then((res) => {
       dispatch({
         type: ADD_EMPLOYEE_SUCCESS,
         isLoading: false,
-        data: res.data,
+        data: res.data.message,
       });
     })
     .catch((err) => {
       dispatch({
         type: ADD_EMPLOYEE_FAILED,
         isLoading: false,
-        errors: err,
+        errors: err.message,
       });
     });
 };
@@ -100,7 +100,7 @@ const updateEmployee = (params) => (dispatch) => {
       dispatch({
         type: EDIT_EMPLOYEE_FAILED,
         isLoading: false,
-        errors: err,
+        errors: err.message,
       });
     });
 };
@@ -109,21 +109,30 @@ const deleteEmployee = (params) => (dispatch) => {
     type: DELETE_EMPLOYEE_LOAD,
     isLoading: true,
   });
-  return GET("path", params)
+  return DELETE("delete-user", params)
     .then((res) => {
       dispatch({
         type: DELETE_EMPLOYEE_SUCCESS,
         isLoading: false,
-        data: res.data,
+        data: res.data.message,
       });
     })
     .catch((err) => {
       dispatch({
         type: DELETE_EMPLOYEE_FAILED,
         isLoading: false,
-        errors: err,
+        errors: err.message,
       });
     });
+};
+
+const clearDeleteEmployee = () => (dispatch) => {
+  dispatch({
+    type: DELETE_EMPLOYEE_SUCCESS || DELETE_EMPLOYEE_FAILED,
+    isLoading: false,
+    data: null,
+    errors: {},
+  });
 };
 
 export {
@@ -132,4 +141,5 @@ export {
   addEmployee,
   updateEmployee,
   deleteEmployee,
+  clearDeleteEmployee,
 };

@@ -9,7 +9,7 @@ const ModalAlert = ({ multibuttton = false, visible, onHidden, onSubmit }) => {
       contentStyle={styles.modalalert}
     >
       <div className={styles.alertheader}>
-        <i class="fa fa-times-circle" aria-hidden="true"></i>
+        <i className="fa fa-times-circle" aria-hidden="true"></i>
       </div>
       <div className={styles.alertbody}>
         <h1>Are You sure ?</h1>

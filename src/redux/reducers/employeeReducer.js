@@ -19,6 +19,8 @@ import {
 const initialState = {
   loading: false,
   employees: [],
+  submitStatus: null,
+  deleteStatus: null,
   errors: {},
 };
 
@@ -71,7 +73,7 @@ const employeeReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: action.isLoading,
-        employees: action.data,
+        submitStatus: action.data,
       };
 
     case ADD_EMPLOYEE_FAILED:
@@ -109,7 +111,7 @@ const employeeReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: action.isLoading,
-        employees: action.data,
+        deleteStatus: action.data,
       };
 
     case DELETE_EMPLOYEE_FAILED:

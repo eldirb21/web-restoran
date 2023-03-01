@@ -5,25 +5,20 @@ import { TextInput } from "../../../components/textinput";
 import styles from "./employees.module.css";
 export const AddEmployee = ({ visible, onModal, ...props }) => {
   const [state, setstate] = useState({
-    employeeId: "",
-    employeeName: "",
-    phone: "",
-    email: "",
-    address: "",
-    joinDate: "",
+    username: "",
+    password: "",
+    role: "",
   });
   const [submitting, setSubmitting] = useState(false);
+  const reverceState = () => {
+    setstate({ ...submitting, username: "", password: "", role: "" });
+    setSubmitting(false);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitting(true);
-
-    // setTimeout(() => {
-    //   setSubmitting(false);
-    //   setFormData({
-    //     reset: true,
-    //   });
-    // }, 3000);
+    props.addEmployee(state);
   };
 
   return (
@@ -31,66 +26,45 @@ export const AddEmployee = ({ visible, onModal, ...props }) => {
       <Modal title="Add Employee" isClose visible={visible} onModal={onModal}>
         <form onSubmit={handleSubmit}>
           <TextInput
-            label="ID"
-            placeholder="ID"
+            label="username"
+            placeholder="username"
             onChange={(val) => {
               val.preventDefault();
-              setstate({ ...state, employeeId: val.target.value });
+              setstate({ ...state, username: val.target.value });
             }}
-            value={state.employeeId}
-            required
-          />
-          <TextInput
-            label="Phone"
-            placeholder="Phone"
-            type="phone"
-            name="phone"
-            onChange={(val) => {
-              val.preventDefault();
-              setstate({ ...state, phone: val.target.value });
-            }}
-            value={state.phone}
+            value={state.username}
             required
           />
 
           <TextInput
-            label="Email"
-            placeholder="Email"
-            type="email"
-            name="email"
+            label="role"
+            placeholder="role"
+            name="role"
             onChange={(val) => {
               val.preventDefault();
-              setstate({ ...state, email: val.target.value });
+              setstate({ ...state, role: val.target.value });
             }}
-            value={state.email}
+            value={state.role}
             required
           />
-          <TextInput
-            label="Join date"
-            placeholder="Join date"
-            onChange={(val) => {
-              val.preventDefault();
-              setstate({ ...state, joinDate: val.target.value });
-            }}
-            value={state.joinDate}
-            required
-          />
+
           <TextInput
             isTextArea
-            label="Address"
-            placeholder="Address"
+            label="password"
+            placeholder="password"
+            type="password"
             onChange={(val) => {
               val.preventDefault();
-              setstate({ ...state, address: val.target.value });
+              setstate({ ...state, password: val.target.value });
             }}
-            value={state.address}
+            value={state.password}
             required
           />
           <div className={styles.addEmployeebtn}>
-            <button type="reset" disabled={submitting}>
+            <button type="reset" onClick={reverceState}>
               Reset
             </button>
-            <button type="submit" disabled={submitting}>
+            <button type="submit" onClick={handleSubmit} disabled={submitting}>
               Submit
             </button>
           </div>
@@ -100,8 +74,4 @@ export const AddEmployee = ({ visible, onModal, ...props }) => {
   );
 };
 
-const mapStateToProps = () => ({});
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddEmployee);
+export default AddEmployee;

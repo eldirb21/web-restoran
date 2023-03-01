@@ -34,29 +34,29 @@ Client.interceptors.response.use(
 const POST = (path, body) => {
   return new Promise((resolve, reject) => {
     Client.post(path, body)
-      .then((res) => resolve(res))
-      .catch((err) => reject(err));
+      .then((res) => setTimeout(() => resolve(res), 1000))
+      .catch((err) => setTimeout(() => reject(err), 1000));
   });
 };
 const UPDATE = (path, body) => {
   return new Promise((resolve, reject) => {
     Client.post(path, body)
-      .then((res) => resolve(res))
-      .catch((err) => reject(err));
+      .then((res) => setTimeout(() => resolve(res), 1000))
+      .catch((err) => setTimeout(() => reject(err), 1000));
   });
 };
 const GET = (path, body) => {
   return new Promise((resolve, reject) => {
     Client.get(path, body)
-      .then((res) => resolve(res))
-      .catch((err) => reject(err));
+      .then((res) => setTimeout(() => resolve(res), 1000))
+      .catch((err) => setTimeout(() => reject(err), 1000));
   });
 };
 const DELETE = (path, body) => {
   return new Promise((resolve, reject) => {
-    Client.delete(path, body)
-      .then((res) => resolve(res))
-      .catch((err) => reject(err));
+    Client.post(path, body)
+      .then((res) => setTimeout(() => resolve(res), 1000))
+      .catch((err) => setTimeout(() => reject(err), 1000));
   });
 };
 export { Client, POST, UPDATE, GET, DELETE };

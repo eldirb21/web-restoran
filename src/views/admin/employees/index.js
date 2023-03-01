@@ -2,75 +2,24 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { TableHeaders } from "../../../components/tables/table-headers";
 import styles from "./employees.module.css";
-import ReactPaginate from "react-paginate";
-import { Modal } from "../../../components/modal";
-import EditEmployee from "./edit-employee";
 import AddEmployee from "./add-employee";
 import ModalAlert from "../../../components/ModalAlart";
-import { getEmployeeList } from "../../../redux/actions/employeeAction";
+import {
+  addEmployee,
+  clearDeleteEmployee,
+  deleteEmployee,
+  getEmployeeList,
+} from "../../../redux/actions/employeeAction";
 import { formatDate } from "../../../constants/helpers";
+import { Spinner } from "../../../components/Spinner";
 
 const theadData = ["ID", "Username", "Role", "Join date", "Ation"];
 
-const tbodyData = [
-  {
-    id: "1",
-    items: [1, "John", "john@email.com", "01/01/2021"],
-  },
-  {
-    id: "2",
-    items: [2, "Sally", "sally@email.com", "12/24/2020"],
-  },
-  {
-    id: "3",
-    items: [3, "Maria", "maria@email.com", "12/01/2020"],
-  },
-  {
-    id: "1",
-    items: [4, "John", "john@email.com", "01/01/2021"],
-  },
-  {
-    id: "2",
-    items: [5, "Sally", "sally@email.com", "12/24/2020"],
-  },
-  {
-    id: "3",
-    items: [6, "Maria", "maria@email.com", "12/01/2020"],
-  },
-  {
-    id: "1",
-    items: [7, "John", "john@email.com", "01/01/2021"],
-  },
-  {
-    id: "2",
-    items: [8, "Sally", "sally@email.com", "12/24/2020"],
-  },
-  {
-    id: "3",
-    items: [9, "Maria", "maria@email.com", "12/01/2020"],
-  },
-  {
-    id: "1",
-    items: [10, "John", "john@email.com", "01/01/2021"],
-  },
-];
 export const Employees = (props) => {
-  const [itemOffset, setItemOffset] = useState(0);
   const [modalAdd, setmodalAdd] = useState(false);
-  const [modalEdit, setmodalEdit] = useState(false);
   const [modalAlert, setmodalAlert] = useState(false);
-  var itemsPerPage = 10;
-  const pageCount = Math.ceil(tbodyData.length / itemsPerPage);
   const [Items, setItems] = useState([]);
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % tbodyData.length;
-    setItemOffset(newOffset);
-  };
-
-  const showModalEdit = () => {
-    setmodalEdit(!modalEdit);
-  };
-
+  const [selected, setselected] = useState({});
   const showModalAdd = () => {
     setmodalAdd(!modalAdd);
   };
@@ -81,11 +30,33 @@ export const Employees = (props) => {
   useEffect(() => {
     props.getEmployeeList();
   }, []);
+
   useEffect(() => {
     if (props.employee.employees) {
       setItems(props.employee.employees);
     }
   }, [props.employee]);
+
+  useEffect(() => {
+    if (props.employee.submitStatus) {
+      showModalAdd();
+      props.getEmployeeList();
+    }
+  }, [props.employee.submitStatus]);
+
+  useEffect(() => {
+    if (props.employee.deleteStatus) {
+      showModalAlert();
+      props.getEmployeeList();
+      props.clearDeleteEmployee();
+    }
+  }, [props.employee.deleteStatus]);
+
+  console.log("props.employee.submitStatus = ", props.employee.deleteStatus);
+
+  const handleDelete = () => {
+    props.deleteEmployee({ id: selected.id });
+  };
 
   return (
     <div className={`container ${styles.employese}`}>
@@ -109,7 +80,14 @@ export const Employees = (props) => {
 
                 <td>
                   {/* <button onClick={showModalEdit}>Edit</button> */}
-                  <button onClick={showModalAlert}>Delete</button>
+                  <button
+                    onClick={() => {
+                      setselected(item);
+                      showModalAlert();
+                    }}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
@@ -128,14 +106,16 @@ export const Employees = (props) => {
         </div> */}
       </div>
 
-      <AddEmployee visible={modalAdd} onModal={showModalAdd} />
-      <EditEmployee visible={modalEdit} onModal={showModalEdit} />
+      <AddEmployee visible={modalAdd} onModal={showModalAdd} {...props} />
+      {/* <EditEmployee visible={modalEdit} onModal={showModalEdit} /> */}
 
       <ModalAlert
         multibuttton={true}
         visible={modalAlert}
         onHidden={showModalAlert}
+        onSubmit={handleDelete}
       />
+      <Spinner visible={props.employee.loading} />
     </div>
   );
 };
@@ -146,6 +126,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   getEmployeeList,
+  addEmployee,
+  deleteEmployee,
+  clearDeleteEmployee,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Employees);
